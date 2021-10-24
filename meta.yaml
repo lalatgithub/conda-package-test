@@ -1,0 +1,30 @@
+{% set name = "conda-package-test" %}
+{% set version = "1.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://github.com/lalzada/conda-package-test.git
+
+build:
+  number: 1
+  script: "python setup.py install"
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+
+# test:
+#   imports:
+#     - conda-package-test
+
+about:
+  home: https://github.com/lalzada/conda-package-test
+  license: MIT
+  license_family: MIT
+  summary: Testing conda package build and publish
